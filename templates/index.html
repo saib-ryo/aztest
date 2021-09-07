@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>一覧画面</title>
+{% endblock %}
+
+{% block body %}
+<p>
+  <button type=“button” onclick="location.href='/entry'">登録</button>
+  <form method="POST" action="/">
+    <input type="submit" value="検索"><br>
+    整理No:　 <input type="text" name="Number"><br>
+    高専：　　
+    <select name="kosen">
+      {% for p in kosen_list %}
+        <option value="{{p.id}}">{{p.name}}</option>
+      {% endfor %}
+    </select><br>
+    分類：　　
+    <select name="classification">
+      {% for p in menue %}
+        <option value="{{ p.value}}">{{p.view_name}}</option>
+      {% endfor %}
+    </select><br>
+    著者：　　<input type="text" name="author"><br>
+    タイトル：<input type="text" name="title"><br>
+  </form>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">整理No</th>
+        <th scope="col">分類</th>
+        <th scope="col">タイトル</th>
+        <th scope="col">著者</th>
+        <th scope="col">　</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      {% for post in posts %}
+        <th scope="row">{{ post.id }}</th>
+        <td>{{ post.classification }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.author }}</td>
+        <td><a href="detail/{{ post.id }}" role="button">詳細</a>　<a href="delete/{{ post.id }}" role="button">削除</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</p>
+{% endblock %}

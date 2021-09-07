@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>修正</title>
+{% endblock %}
+
+{% block body %}
+<p>
+    <form method="POST" action="/confirm">
+        <input type="submit" value="登録"><br>
+        整理No:{{ post.id }}<br>
+        分類：
+        <select name="classification">
+            <option value="1">要素1</option>
+            <option value="2">要素2</option>
+            <option value="3">要素3</option>
+        </select><br>
+        著者：<input type="text" name="author" value="{{ post.author }}"><br>
+        タイトル：<input type="text" name="title" value="{{ post.title }}"><br>
+        内容：<input type="text" name="contents" value="{{ post.contents }}"><br>
+</p>
+{% endblock %}

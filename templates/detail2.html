@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>詳細/登録完了画面</title>
+{% endblock %}
+
+{% block body %}
+<p>
+    <button type=“button” onclick="location.href='/'">←戻る</button><br>
+    整理No：自動採番<br>
+    分類：{{　classification }}<br>
+    著者：{{ author }}<br>
+    タイトル：{{ title }}<br>
+    内容：{{ contents }}<br>
+    <form method="POST" action="/entry">
+        <input type="hidden" name="classification" value="{{ classification }}">
+        <input type="hidden" name="author" value="{{ author }}">
+        <input type="hidden" name="title" value="{{ title }}">
+        <input type="hidden" name="contents" value="{{ contents }}">
+        <input type="submit" value="修正">
+    </form>
+</p>
+{% endblock %}

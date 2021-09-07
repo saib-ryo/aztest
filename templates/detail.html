@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>詳細/登録完了画面</title>
+{% endblock %}
+
+{% block body %}
+<p>
+    <button type=“button” onclick="location.href='/'">←戻る</button><br>
+    整理No:{{ post.id }}<br>
+    分類：{{ post.classification }}<br>
+    著者：{{ post.author }}<br>
+    タイトル：{{ post.title }}<br>
+    内容：{{ post.contents }}<br>
+    <button type=“button” onclick="location.href='/entry/{{ post.id }}'">修正</button><br>
+</p>
+{% endblock %}
